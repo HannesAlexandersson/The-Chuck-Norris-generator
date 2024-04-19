@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/index.js';
 import { getJoke } from './apiFunctions/index.js';//get all our API functions imported
 import './App.css';
 
 function App() {
   const [joke, setJoke] = useState('');//we store the joke in a state
-  const [selectedCategory, setSelectedCategory] = useState(null);//the categories are also stored in a state, this state updates when user choose a category
+  const [selectedCategory, setSelectedCategory] = useState('');//the categories are also stored in a state, this state updates when user choose a category
   const [loaded, setLoaded] = useState(false);//a state to handle if the " " should render
 
 
@@ -13,49 +13,48 @@ function App() {
   const handleGetJoke = async () => {
     try {
       const data = await getJoke('random');
-      setJoke(data.value);
-      setLoaded(true);
+      setJoke(data.value);      
     } catch (error) {
-      console.error('Error fetching Chuck Norris joke:', error);
+      console.error('naah... Chuck Norris stole the joke again:', error);
     }
   };
 
-  //the clickhandler for the category jokes uses the imported fetch function to get a joke according to selected category
-  const handleGetCategoryJoke = async () => {
-    if (selectedCategory) {
-      try {
-        const data = await getJoke(`random?category=${selectedCategory}`);
-        setJoke(data.value);
-        setLoaded(true);
-      } catch (error) {
-        console.error('Error fetching Chuck Norris joke:', error);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      if (selectedCategory) {
+        try {
+          const data = await getJoke(`random?category=${selectedCategory}`);
+          setJoke(data.value);
+          setLoaded(true);
+        } catch (error) {
+          console.error('naah... Chuck Norris stole the joke again:', error);
+        }
       }
-    } else {
-      alert('Please select a category');//we tell the user that they must choose a category
-    }
-  };
-
+    };
+  
+    fetchData(); 
+  }, [selectedCategory]);//we hook renders evertime the user selects an category
+    
+  
+ 
   //the category handler updates the category state when the user chooses a category
   const handleCategorySelect = async (category) => {
-    setSelectedCategory(category);
-    if(selectedCategory) {//the API is only called when the category is properly set
-      handleGetCategoryJoke();
-    }
+    setSelectedCategory(category);   
   };
 
   //console.log(selectedCategory, 'app category'); /*DEBUG */
   return (
     <>  
         <Header 
-          handleGetJoke={handleGetJoke}
-          handleGetCategoryJoke={handleGetCategoryJoke}   
+          handleGetJoke={handleGetJoke}         
           handleCategorySelect={handleCategorySelect}
           selectedCategory={selectedCategory}
         />
 
         <div className="displayContainer">
 
-          {loaded ? (
+          {joke ? (
             <><span>&quot;</span><p>{joke}</p><span>&quot;</span></>
           ) : (
             <></>
