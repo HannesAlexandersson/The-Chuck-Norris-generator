@@ -13,7 +13,8 @@ function App() {
   const handleGetJoke = async () => {
     try {
       const data = await getJoke('random');
-      setJoke(data.value);      
+      setJoke(data.value);
+      setLoaded(true);//set the loaded state to display the "" + the actual joke      
     } catch (error) {
       console.error('naah... Chuck Norris stole the joke again:', error);
     }
@@ -54,7 +55,7 @@ function App() {
 
         <div className="displayContainer">
 
-          {joke ? (
+          {loaded ? (
             <><span>&quot;</span><p>{joke}</p><span>&quot;</span></>
           ) : (
             <></>
