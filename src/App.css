@@ -1,0 +1,17 @@
+.displayContainer {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+.displayContainer > p,span{
+    color: var(--Light-blue);
+    font-family: var(--default-font);
+    font-size: 1.5em;
+}
+.displayContainer > span{
+    font-size: 2em;
+    align-self: self-start;
+}
