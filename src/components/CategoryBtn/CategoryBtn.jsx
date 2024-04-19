@@ -3,15 +3,16 @@ import props from 'prop-types';
 import categoriesData from '../../categories.json';
 import style from './category.module.css';
 
-function CategoryBtn({ children, selectedCategory, handleCategorySelect }){
+function CategoryBtn({ children, handleCategorySelect }){
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);//state for the dropdown list with categorys
 
-    //the category handler updates the category state when the user chooses a category
+    //the handler sets the state of the dropdown list
     const handleCategoryDropDown = (category) => { 
         handleCategorySelect(category);
+      
         setIsDropdownOpen(false);
       };
-      //console.log(selectedCategory, 'catbtn');/*DEBUG */
+     
     return(
         <>
              <button className={style.dropdownBtn} onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
@@ -31,9 +32,9 @@ function CategoryBtn({ children, selectedCategory, handleCategorySelect }){
 }
 CategoryBtn.propTypes = {
     children: props.array, 
-    img: props.element,     
-    selectedCategory: props.string, 
-    handleCategorySelect: props.func,      
+    img: props.element,        
+    handleCategorySelect: props.func,  
+    handleGetCategoryJoke: props.func,    
   };
 
 export default CategoryBtn

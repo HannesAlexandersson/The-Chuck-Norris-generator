@@ -1,49 +1,17 @@
-.page-wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-button{
-    display: flex;
-    background-color: blue;
-    color: white;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: .5rem;
-}
-.randomJoke-container,.categories-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.main-container {
+.displayContainer {
+    margin-top: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
 }
-.headerWrap{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.headerWrap > h1{
+.displayContainer > p,span{
+    color: var(--Light-blue);
+    font-family: var(--default-font);
     font-size: 1.5em;
-    text-align: center;
 }
-.displayBox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    justify-content: center;
-}
-.displayBox > p{
-    text-align: center;
-    font-size: 1em;
+.displayContainer > span{
+    font-size: 2em;
+    align-self: self-start;
 }
