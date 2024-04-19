@@ -17,3 +17,5 @@ Requirements:
 
 The application contains basic fetch calls to the Chuck Norris api : https://api.chucknorris.io/ 
 All cred to the original creators of the API. 
+
+Have fun and be safe
