@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Header } from './components/index.js';
 import {getJoke } from './apiFunctions/index.js';//get all our API functions
-import categoriesData from './categories.json'; //I thought it would be more convenient to just have the list in the filesystem then to fetch the list each time, But if you dont like it the getCategories function fetches the list so we can easily implement it
+//import categoriesData from './categories.json'; //I thought it would be more convenient to just have the list in the filesystem then to fetch the list each time, But if you dont like it the getCategories function fetches the list so we can easily implement it
 import './App.css';
 
 function App() {
@@ -20,13 +21,6 @@ function App() {
     }
   };
 
-
-  //the category handler updates the category state when the user chooses a category
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-
   //the clickhandler for the category jokes uses the imported fetch function to get a joke according to selected category
   const handleGetCategoryJoke = async () => {
     if (selectedCategory) {
@@ -41,9 +35,28 @@ function App() {
     }
   };
 
+  //the category handler updates the category state when the user chooses a category
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);    
+  };
+
+  //console.log(selectedCategory, 'app category'); /*DEBUG */
   return (
-    <>
-    <div className='page-wrapper'>
+    <>  
+      <Header 
+        handleGetJoke={handleGetJoke}
+        handleGetCategoryJoke={handleGetCategoryJoke}   
+        handleCategorySelect={handleCategorySelect}
+        selectedCategory={selectedCategory}
+      />
+    </>
+  );
+}
+
+export default App;
+
+/*
+ <div className='page-wrapper'>
       <div className='main-container'>
         <div className='headerWrap'>
           <h1>Get your daily Chuck Norris joke</h1>
@@ -84,8 +97,4 @@ function App() {
 
 
       </div>
-    </>
-  );
-}
-
-export default App;
+*/

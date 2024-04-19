@@ -1,1 +1,26 @@
+:root{
+    /*Colors*/
+    --Dark-blue: #2B2D42;
+    --Medium-blue: #8D99AE;
+    --Light-blue: #EDF2F4;
+
+    --Light-red: #EF233C;
+    --Dark-red: #D90429;
+
+    /*Fonts*/
+
+    --Default-font: 'Fira mono', sans-serif;    
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: linear-gradient(180deg, var(--Dark-blue) 34%, var(--Light-red) 167.24%) no-repeat;
+  }
+
+
 

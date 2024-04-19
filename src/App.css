@@ -6,8 +6,13 @@
     gap: 2rem;
 }
 button{
+    display: flex;
     background-color: blue;
     color: white;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
 }
 .randomJoke-container,.categories-container{
     display: flex;
