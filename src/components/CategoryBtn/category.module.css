@@ -52,7 +52,7 @@ ul.dropDownOpen {
   transition: background-color 0.3s ease-out;
 
   text-align: left;
-  
+
   color: var(--Dark-blue);
 
   border-radius: 0.25rem;
@@ -92,4 +92,15 @@ ul.dropDownOpen {
   color: var(--Light-blue);
 }
 
+/* chrome dev tools "tablet" and larger: */
+@media screen and (min-width: 768px) {
+  .dropdownBtnClosed {
+    font-size: 1.5rem;
+    min-width: 205px;
+  }
+
+  .dropDownOpen > button {
+    font-size: 1.5rem;
+    min-width: 205px;
+  }
 }
