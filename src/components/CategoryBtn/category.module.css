@@ -1,57 +1,61 @@
-.dropdownBtn{
-    display: flex;
-    padding: 0.5rem 1rem;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.3125rem;
-    border-radius: 1rem;
-    border: 1px solid var(--Light-blue);
-    background: var(--Dark-blue);
-    box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
-    position: relative;
+.dropdownBtn {
+  display: flex;
+  padding: 0.5rem 1rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.3125rem;
+  border-radius: 1rem;
+  border: 1px solid var(--Light-blue);
+  background: var(--Dark-blue);
+  box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
+  position: relative;
 
-    cursor: pointer;
+  cursor: pointer;
 }
-.dropdownBtn > p{
-    color: var(--Light-blue);
-    font-family: var(--default-font);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 121.307%; 
-    text-transform: uppercase;
-    margin: 0;
+.dropdownBtn > p {
+  color: var(--Light-blue);
+  font-family: var(--Default-font);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.307%;
+  text-transform: uppercase;
+  margin: 0;
 }
-.dropdownContent{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    top: 100%;
-    right: 50%;
-    transform: translateX(50%);
-    z-index: 99;
-    border: solid 1px white;
-    border-radius: 1.2rem;
-    width: 100%;
-    padding: .275rem;
-    background: linear-gradient(180deg, var(--Dark-blue) 34%, var(--Light-red) 167.24%);
-    backdrop-filter: blur(20px);
-    overflow: hidden;
+.dropdownContent {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  top: 100%;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 99;
+  border: solid 1px white;
+  border-radius: 1.2rem;
+  width: 100%;
+  padding: 0.275rem;
+  background: linear-gradient(
+    180deg,
+    var(--Dark-blue) 34%,
+    var(--Light-red) 167.24%
+  );
+  backdrop-filter: blur(20px);
+  overflow: hidden;
 }
-.drpDwnitems{
-    color: var(--Light-blue);
-    font-family: var(--default-font);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 121.307%;
-    text-transform: uppercase;   
-    cursor: pointer;
-    margin: .275rem 0rem;
+.drpDwnitems {
+  color: var(--Light-blue);
+  font-family: var(--Default-font);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.307%;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0.275rem 0rem;
 }
-.drpDwnitems:hover{
-    text-decoration: underline;
+.drpDwnitems:hover {
+  text-decoration: underline;
 }

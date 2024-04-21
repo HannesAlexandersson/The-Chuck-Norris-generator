@@ -1,26 +1,30 @@
-:root{
-    /*Colors*/
-    --Dark-blue: #2B2D42;
-    --Medium-blue: #8D99AE;
-    --Light-blue: #EDF2F4;
+:root {
+  /*Colors*/
+  --Dark-blue: #2b2d42;
+  --Medium-blue: #8d99ae;
+  --Light-blue: #edf2f4;
 
-    --Light-red: #EF233C;
-    --Dark-red: #D90429;
+  --Light-red: #ef233c;
+  --Dark-red: #d90429;
 
-    /*Fonts*/
+  /*Fonts*/
 
-    --Default-font: 'Fira mono', sans-serif;    
+  --Default-font: "Fira mono", sans-serif;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    background: linear-gradient(180deg, var(--Dark-blue) 34%, var(--Light-red) 167.24%) no-repeat;
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--Default-font);
+}
 
-
-
+body {
+  background: linear-gradient(
+      180deg,
+      var(--Dark-blue) 34%,
+      var(--Light-red) 167.24%
+    )
+    no-repeat;
+}
