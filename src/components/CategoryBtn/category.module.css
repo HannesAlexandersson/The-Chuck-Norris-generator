@@ -1,52 +1,63 @@
-.dropdownBtn {
-  display: flex;
-  padding: 0.5rem 1rem;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.3125rem;
+.wrapper {
+  border: 2px solid var(--Light-blue);
   border-radius: 1rem;
-  border: 1px solid var(--Light-blue);
+}
+
+.dropdownBtnClosed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  margin: 0;
+
+  font-family: var(--Default-font);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.307%;
+  text-transform: uppercase;
+
+  border: none;
   background: var(--Dark-blue);
   box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
-  position: relative;
+  color: var(--Light-blue);
 
   cursor: pointer;
+  min-width: 155px;
 }
-.dropdownBtn > p {
-  color: var(--Light-blue);
-  font-family: var(--Default-font);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 121.307%;
-  text-transform: uppercase;
-  margin: 0;
-}
-.dropdownContent {
-  display: flex;
+
+ul.dropDownOpen {
   position: absolute;
+  right: 2rem;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  top: 100%;
-  right: 50%;
-  transform: translateX(50%);
-  z-index: 99;
-  border: solid 1px white;
-  border-radius: 1.2rem;
-  width: 100%;
-  padding: 0.275rem;
-  background: linear-gradient(
-    180deg,
-    var(--Dark-blue) 34%,
-    var(--Light-red) 167.24%
-  );
-  backdrop-filter: blur(20px);
-  overflow: hidden;
+
+  margin: 0;
+  gap: 2px;
+  padding: 0;
+  border: 2px solid var(--Light-blue);
+
+  background-color: var(--Light-blue);
+  box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
+
+  border-radius: 18px;
+
+  /* backdrop-filter: blur(20px); */
 }
-.drpDwnitems {
-  color: var(--Light-blue);
+
+.dropDownOpen > button {
+  transition: background-color 0.3s ease-out;
+
+  text-align: left;
+  
+  color: var(--Dark-blue);
+
+  border-radius: 0.25rem;
+  border: none;
+
   font-family: var(--Default-font);
   font-size: 1rem;
   font-style: normal;
@@ -54,8 +65,31 @@
   line-height: 121.307%;
   text-transform: uppercase;
   cursor: pointer;
-  margin: 0.275rem 0rem;
+  padding: 0.5rem 1rem;
+
+  width: 100%;
+  min-width: 155px;
 }
-.drpDwnitems:hover {
-  text-decoration: underline;
+
+.dropDownOpen > button:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  border-radius: 1rem 1rem 0.25rem 0.25rem;
+  background-color: var(--Medium-blue);
+  color: var(--Light-blue);
+}
+
+.dropDownOpen > button:last-child {
+  border-radius: 0.25rem 0.25rem 1rem 1rem;
+}
+
+.dropDownOpen > button:hover,
+.dropDownOpen > button:active {
+  background-color: var(--Dark-blue);
+  color: var(--Light-blue);
+}
+
 }

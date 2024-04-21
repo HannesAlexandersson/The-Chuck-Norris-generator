@@ -46,12 +46,12 @@ function App() {
 
   //console.log(selectedCategory, 'app category'); /*DEBUG */
   return (
-    <>  
-        <Header 
-          handleGetJoke={handleGetJoke}         
-          handleCategorySelect={handleCategorySelect}
-          selectedCategory={selectedCategory}
-        />
+      <Header
+        handleGetJoke={handleGetJoke}
+        handleCategorySelect={handleCategorySelect}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
         <div className="displayContainer">
 

@@ -5,12 +5,17 @@
   align-items: center;
   gap: 1.3125rem;
 
-  border: 1px solid var(--Dark-red);
+  border: 2px solid var(--Dark-red);
   border-radius: 1rem;
   background: var(--Dark-red);
   box-shadow: 0px 0px 32px 4px rgba(239, 35, 60, 0.5);
 
   cursor: pointer;
+}
+
+.newJokeBtn:hover,
+.newJokeBtn:active {
+  background: var(--Light-red);
 }
 
 .newJokeBtn > p {
