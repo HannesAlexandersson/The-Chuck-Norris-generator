@@ -11,15 +11,39 @@ function CategoryBtn({ selectedCategory, setSelectedCategory }) {
 
   return (
     <>
-      {isDropdownOpen ? (
-        <ul className={style.dropDownOpen}>
-          <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+      <div
+        className={`${style.wrapper} ${
+          isDropdownOpen
+            ? style.wrapperWhenDropdownOpen
+            : style.wrapperWhenDropdownClosed
+        }`}
+      >
+        <button
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className={
+            isDropdownOpen ? style.dropdownBtnOpen : style.dropdownBtnClosed
+          }
+        >
+          <span>{selectedCategory ? selectedCategory : 'Categories'}</span>
+          <img src={drpIconMediumBlue} />
+        </button>
+      </div>
+
+      <ul
+        className={isDropdownOpen ? style.dropDownOpen : style.dropDownClosed}
+      >
+        <>
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className={style.dropDownBtnCategories}
+          >
             <span>{selectedCategory ? selectedCategory : 'Categories'}</span>
             <img src={drpIconLightBlue} />
           </button>
 
           {categoriesData.map(category => (
             <button
+              className={style.dropDownBtnCategories}
               key={category}
               onClick={() => {
                 setSelectedCategory(category);
@@ -29,25 +53,10 @@ function CategoryBtn({ selectedCategory, setSelectedCategory }) {
               {category}
             </button>
           ))}
-        </ul>
-      ) : (
-        <div className={style.wrapper}>
-          <button
-            className={style.dropdownBtnClosed}
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            <span>{selectedCategory ? selectedCategory : 'Categories'}</span>
-            <img src={drpIconMediumBlue} />
-          </button>
-        </div>
-      )}
+        </>
+      </ul>
     </>
   );
 }
-CategoryBtn.propTypes = {
-  children: props.array,
-  img: props.element,
-  handleGetCategoryJoke: props.func,
-};
 
 export default CategoryBtn;
