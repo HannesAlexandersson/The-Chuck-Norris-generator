@@ -1,17 +1,18 @@
 import props from 'prop-types';
 import style from './redbtn.module.css';
 
-function Redbtn(props){
+function Redbtn({ children, handleSave }){
 
+    
     return(
-        <button className={style.redBtn}>
-            {props.children}
+        <button className={style.redBtn} onClick={handleSave}>
+            {children}
         </button>
 
     );
 }
 Redbtn.propTypes = {
-    children: props.string,  
-       
+    children: props.object,  
+    handleSave: props.func,
   };
 export default Redbtn

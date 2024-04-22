@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Header, Redbtn } from './components/index.js';
+import { Header, Redbtn, EmailPopUp } from './components/index.js';
 import { getJoke } from './apiFunctions/index.js';//get all our API functions imported
 import './App.css';
 
@@ -8,6 +8,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('');//the categories are also stored in a state, this state updates when user choose a category
   const [loaded, setLoaded] = useState(false);//a state to handle if the " " should render
   const [jokes, setJokes] = useState([]); //state to store the saved jokesarray
+  const [isModalOpen, setIsModalOpen] = useState(false); //state for the email popup window
 
 
 
@@ -44,14 +45,48 @@ function App() {
     setSelectedCategory(category);   
   };
 
+  /*--------SAVE LOGIC----------------*/
+  const MAX_JOKE_LIMIT = 10;
   //handler for saving the joke to the joke array
   const handleSave = () => {
     if (joke.trim() === '') { //if there is a error and the joke is empty string
       return;
     }
+    //if the joke already exist in the array we warn the user
+    if (jokes.includes(joke)) {
+      alert('You have already saved this joke.');
+      return;
+    }
+
+    //we only allow 10 jokes to be saved in the list
+    if (jokes.length >= MAX_JOKE_LIMIT) {
+      alert(`You can only save up to ${MAX_JOKE_LIMIT} jokes.`);
+      return;
+    }
 
   setJokes([...jokes, joke]);//set the state with the joke
+  console.log(jokes);
 };
+
+const handleRemoveJoke = (indexToRemove) => {
+  setJokes(jokes.filter((_, index) => index !== indexToRemove));
+};
+/*--------SAVE LOGIC END----------------*/
+
+
+/*--------SEND LOGIC----------------*/
+const handleGetTxtFile = () => {
+  const jokesText = jokes.join('\n'); // Join jokes with newline characters
+  const blob = new Blob([jokesText], { type: 'text/plain' }); // Create a Blob with text content
+  const url = URL.createObjectURL(blob); 
+  const a = document.createElement('a'); 
+  a.href = url; 
+  a.download = 'chucknorrisjokes.txt'; // Set the filename
+  document.body.appendChild(a); 
+  a.click(); // Simulate a click on the link
+  URL.revokeObjectURL(url); 
+  document.body.removeChild(a); 
+  };
 
   return (
     <>  
@@ -72,13 +107,35 @@ function App() {
         </div>
 
         <div className='saveBtn-wrapper'>
-          <Redbtn onClick={handleSave} >
+          <Redbtn handleSave={handleSave} >
             <p>save joke</p>
           </Redbtn>
         </div>
 
         <div className='savedContainer'>
+          <h2>Saved jokes: </h2>
+          {jokes && jokes.map((joke, index) => (
+            <div key={index} className='jokeListItem'>
+              <p>{index + 1}. {joke}</p>
+              <button className='removeBtn' onClick={() => handleRemoveJoke(index)}>Remove</button>
+            </div>
+          ))}
+        </div>
 
+        <div className='sendContainer'>
+        <button className="saveJokeInit" onClick={() => { 
+          setIsModalOpen(true)
+        }}>
+            <p>download jokes</p>
+          </button>
+            {isModalOpen && (
+              <EmailPopUp
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                jokes={jokes}
+                handleGetTxtFile={handleGetTxtFile}
+              />
+            )}
         </div>
     </>
   );

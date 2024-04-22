@@ -23,3 +23,6 @@
     text-transform: uppercase;
     margin: 0;
 }
+.redBtn:hover{
+    background: var(--Light-red);
+}
