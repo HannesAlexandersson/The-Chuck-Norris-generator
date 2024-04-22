@@ -1,11 +1,11 @@
-import props from "prop-types";
-import style from "./joke.module.css";
+import props from 'prop-types';
+import style from './joke.module.css';
 
 function Jokebtn({ children, handleGetJoke }) {
   return (
     <>
       <button className={style.newJokeBtn} onClick={handleGetJoke}>
-        {children}
+        <p>New Joke</p>
       </button>
     </>
   );

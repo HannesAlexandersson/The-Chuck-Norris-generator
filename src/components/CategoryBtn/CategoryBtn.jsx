@@ -1,25 +1,49 @@
-import { useState } from "react";
-import props from "prop-types";
+import { useState } from 'react';
+import props from 'prop-types';
 
-import drpIconLightBlue from "../../assets/icons/ddIcon-light-blue.svg";
-import drpIconMediumBlue from "../../assets/icons/ddIcon-medium-blue.svg";
-import categoriesData from "../../categories.json";
-import style from "./category.module.css";
+import drpIconLightBlue from '../../assets/icons/ddIcon-light-blue.svg';
+import drpIconMediumBlue from '../../assets/icons/ddIcon-medium-blue.svg';
+import categoriesData from '../../categories.json';
+import style from './category.module.css';
 
 function CategoryBtn({ selectedCategory, setSelectedCategory }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // state for the dropdown list with categories
 
   return (
     <>
-      {isDropdownOpen ? (
-        <ul className={style.dropDownOpen}>
-          <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-            <span>{selectedCategory ? selectedCategory : "Categories"}</span>
+      <div
+        className={`${style.wrapper} ${
+          isDropdownOpen
+            ? style.wrapperWhenDropdownOpen
+            : style.wrapperWhenDropdownClosed
+        }`}
+      >
+        <button
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className={
+            isDropdownOpen ? style.dropdownBtnOpen : style.dropdownBtnClosed
+          }
+        >
+          <span>{selectedCategory ? selectedCategory : 'Categories'}</span>
+          <img src={drpIconMediumBlue} />
+        </button>
+      </div>
+
+      <ul
+        className={isDropdownOpen ? style.dropDownOpen : style.dropDownClosed}
+      >
+        <>
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className={style.dropDownBtnCategories}
+          >
+            <span>{selectedCategory ? selectedCategory : 'Categories'}</span>
             <img src={drpIconLightBlue} />
           </button>
 
-          {categoriesData.map((category) => (
+          {categoriesData.map(category => (
             <button
+              className={style.dropDownBtnCategories}
               key={category}
               onClick={() => {
                 setSelectedCategory(category);
@@ -29,26 +53,10 @@ function CategoryBtn({ selectedCategory, setSelectedCategory }) {
               {category}
             </button>
           ))}
-        </ul>
-      ) : (
-        <div className={style.wrapper}>
-          <button
-            className={style.dropdownBtnClosed}
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            <span>{selectedCategory ? selectedCategory : "Categories"}</span>
-            <img src={drpIconMediumBlue} />
-          </button>
-        </div>
-      )}
+        </>
+      </ul>
     </>
   );
 }
-CategoryBtn.propTypes = {
-  children: props.array,
-  img: props.element,
-  handleCategorySelect: props.func,
-  handleGetCategoryJoke: props.func,
-};
 
 export default CategoryBtn;
