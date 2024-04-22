@@ -1,0 +1,106 @@
+.wrapper {
+  border: 2px solid var(--Light-blue);
+  border-radius: 1rem;
+}
+
+.dropdownBtnClosed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  margin: 0;
+
+  font-family: var(--Default-font);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.307%;
+  text-transform: uppercase;
+
+  border: none;
+  background: var(--Dark-blue);
+  box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
+  color: var(--Light-blue);
+
+  cursor: pointer;
+  min-width: 155px;
+}
+
+ul.dropDownOpen {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  gap: 2px;
+  padding: 0;
+  border: 2px solid var(--Light-blue);
+
+  background-color: var(--Light-blue);
+  box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
+
+  border-radius: 18px;
+
+  /* backdrop-filter: blur(20px); */
+}
+
+.dropDownOpen > button {
+  transition: background-color 0.3s ease-out;
+
+  text-align: left;
+
+  color: var(--Dark-blue);
+
+  border-radius: 0.25rem;
+  border: none;
+
+  font-family: var(--Default-font);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 121.307%;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+
+  width: 100%;
+  min-width: 155px;
+}
+
+.dropDownOpen > button:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  border-radius: 1rem 1rem 0.25rem 0.25rem;
+  background-color: var(--Medium-blue);
+  color: var(--Light-blue);
+}
+
+.dropDownOpen > button:last-child {
+  border-radius: 0.25rem 0.25rem 1rem 1rem;
+}
+
+.dropDownOpen > button:hover,
+.dropDownOpen > button:active {
+  background-color: var(--Dark-blue);
+  color: var(--Light-blue);
+}
+
+/* chrome dev tools "tablet" and larger: */
+@media screen and (min-width: 768px) {
+  .dropdownBtnClosed {
+    font-size: 1.5rem;
+    min-width: 205px;
+  }
+
+  .dropDownOpen > button {
+    font-size: 1.5rem;
+    min-width: 205px;
+  }
+}
