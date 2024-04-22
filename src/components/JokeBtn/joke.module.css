@@ -16,6 +16,7 @@
 .newJokeBtn:hover,
 .newJokeBtn:active {
   background: var(--Light-red);
+  border: 2px solid var(--Light-red);
 }
 
 .newJokeBtn > p {
