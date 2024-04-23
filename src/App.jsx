@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Header, Redbtn, EmailPopUp } from './components/index.js';
+import { Header, SendContainer, SavedContainer, StoreContainer, DisplayContainer } from './components/index.js';
 import { getJoke } from './apiFunctions/index.js';//get all our API functions imported
 import './App.css';
 
@@ -95,6 +95,7 @@ const handleGetTxtFile = () => {
   document.body.removeChild(a);   
   };
 /*--------DOWNLOAD LOGIC ENDS----------------*/
+
   return (
     <>  
         <Header 
@@ -103,47 +104,29 @@ const handleGetTxtFile = () => {
           selectedCategory={selectedCategory}
         />
 
-        <div className="displayContainer">
 
-          {loaded ? (
-            <><span>&quot;</span><p>{joke}</p><span>&quot;</span></>
-          ) : (
-            <></>
-          )}
-            
-        </div>
+        <DisplayContainer
+          joke={joke}
+          loaded={loaded}
+        />
+        
+        <StoreContainer
+          handleSave={handleSave}
+        />
+      
 
-        <div className='saveBtn-wrapper'>
-          <Redbtn handleSave={handleSave} >
-            <p>save joke</p>
-          </Redbtn>
-        </div>
+        <SavedContainer 
+          handleRemoveJoke={handleRemoveJoke}
+          jokes={jokes}
+        />
+      
 
-        <div className='savedContainer'>
-          <h2>Saved jokes: </h2>
-          {jokes && jokes.map((joke, index) => (
-            <div key={index} className='jokeListItem'>
-              <p>{index + 1}. {joke}</p>
-              <button className='removeBtn' onClick={() => handleRemoveJoke(index)}>Remove</button>
-            </div>
-          ))}
-        </div>
-
-        <div className='sendContainer'>
-        <button className="saveJokeInit" onClick={() => { 
-          {jokes.length > 0 ? setIsModalOpen(true) : alert('You havent saved any jokes yet!')}          
-        }}>
-            <p>download jokes</p>
-          </button>
-            {isModalOpen && (
-              <EmailPopUp
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                jokes={jokes}
-                handleGetTxtFile={handleGetTxtFile}
-              />
-            )}
-        </div>
+        <SendContainer
+          jokes={jokes}
+          isModalOpen={isModalOpen}
+          handleGetTxtFile={handleGetTxtFile}
+          setIsModalOpen={setIsModalOpen}
+        />
     </>
   );
 }
