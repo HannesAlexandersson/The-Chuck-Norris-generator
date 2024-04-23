@@ -12,7 +12,15 @@
   --Default-font: 'Fira mono', sans-serif;
 }
 
+html,
 body {
-  background-color: var(--Dark-blue);
+  margin: 0;
+  padding: 0;
+  font-family: var(--Default-font);
+  height: 100%;
 }
 
+body {
+  margin: 0;
+  background-color: var(--Dark-blue);
+}
