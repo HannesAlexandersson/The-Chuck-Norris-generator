@@ -9,7 +9,7 @@
 
   /*Fonts*/
 
-  --Default-font: "Fira mono", sans-serif;
+  --Default-font: 'Fira mono', sans-serif;
 }
 
 html,
@@ -21,10 +21,5 @@ body {
 }
 
 body {
-  background: linear-gradient(
-      180deg,
-      var(--Dark-blue) 34%,
-      var(--Light-red) 167.24%
-    )
-    no-repeat;
+  background-color: var(--Dark-blue);
 }
