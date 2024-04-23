@@ -5,7 +5,7 @@ import './index.css';
 import '@fontsource/fira-mono';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  
     <App />
-  </React.StrictMode>
+   
 );
