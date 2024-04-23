@@ -50,17 +50,18 @@ function App() {
   //handler for saving the joke to the joke array
   const handleSave = () => {
     if (joke.trim() === '') { //if there is a error and the joke is empty string
+      alert('There is no joke to save, please press the new joke button to generate a new joke!')
       return;
     }
     //if the joke already exist in the array we warn the user
     if (jokes.includes(joke)) {
-      alert('You have already saved this joke.');
+      alert('You have already saved this joke. Generate a new joke first!');
       return;
     }
 
     //we only allow 10 jokes to be saved in the list
     if (jokes.length >= MAX_JOKE_LIMIT) {
-      alert(`You can only save up to ${MAX_JOKE_LIMIT} jokes.`);
+      alert(`Chuck only allow you to save ${MAX_JOKE_LIMIT} jokes.`);
       return;
     }
 
@@ -68,26 +69,32 @@ function App() {
   console.log(jokes);
 };
 
+//handler for removing the joke from the save array
 const handleRemoveJoke = (indexToRemove) => {
   setJokes(jokes.filter((_, index) => index !== indexToRemove));
 };
+
 /*--------SAVE LOGIC END----------------*/
 
 
-/*--------SEND LOGIC----------------*/
-const handleGetTxtFile = () => {
-  const jokesText = jokes.join('\n'); // Join jokes with newline characters
+/*--------DOWNLOAD LOGIC----------------*/
+const handleGetTxtFile = () => { 
+  let jokesText = "Your Chuck Norris jokes:\n\n";//format the txtfile with a title
+  jokes.forEach((joke, index) => {
+    jokesText += `${index + 1}. ${joke}\n`; //give each joke a number
+  });
+
   const blob = new Blob([jokesText], { type: 'text/plain' }); // Create a Blob with text content
   const url = URL.createObjectURL(blob); 
   const a = document.createElement('a'); 
   a.href = url; 
-  a.download = 'chucknorrisjokes.txt'; // Set the filename
+  a.download = 'mychucknorrisjokes.txt'; // Set the filename
   document.body.appendChild(a); 
   a.click(); // Simulate a click on the link
   URL.revokeObjectURL(url); 
-  document.body.removeChild(a); 
+  document.body.removeChild(a);   
   };
-
+/*--------DOWNLOAD LOGIC ENDS----------------*/
   return (
     <>  
         <Header 
@@ -124,7 +131,7 @@ const handleGetTxtFile = () => {
 
         <div className='sendContainer'>
         <button className="saveJokeInit" onClick={() => { 
-          setIsModalOpen(true)
+          {jokes.length > 0 ? setIsModalOpen(true) : alert('You havent saved any jokes yet!')}          
         }}>
             <p>download jokes</p>
           </button>

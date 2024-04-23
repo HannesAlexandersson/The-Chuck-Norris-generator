@@ -18,45 +18,54 @@
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    height: 18rem;
+    width: 80%;    
     background: linear-gradient(to bottom, rgba(104, 100, 100, 0.3), rgb(115 71 71 / 80%));
     backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: center;
     color: var(--Light-blue);
 }
+.popupContent > h2{
+  text-transform: uppercase;
+}
+.popupContent > p{
+  text-align: center;
+ 
+}
   
-  
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .open {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.closeContainer{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-  .saveBtn{
-    border: none;
-    background: var(--Light-red);
-    color: var(--Light-blue);
-    padding: .725rem;
-    border-radius: 8px;
-  }
-  .saveBtn:hover{
-    background: var( --Dark-red);
-  }
-  
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.open {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.saveBtn{
+  border: none;
+  background: var(--Light-red);
+  color: var(--Light-blue);
+  padding: .725rem;
+  border-radius: 8px;
+}
+.saveBtn:hover{
+  background: var( --Dark-red);
+}

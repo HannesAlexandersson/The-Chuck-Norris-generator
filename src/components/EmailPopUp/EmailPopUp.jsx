@@ -10,9 +10,11 @@ function EmailPopUp({ isOpen, onClose, handleGetTxtFile  }) {
     return (
         <div className={`${styles.popup} ${isOpen ? styles.open : ''}`}>
         <div className={styles.popupContent}>
-          <span className={styles.close} onClick={onClose}>&times;</span>
+          <div className={styles.closeContainer}>
+            <span className={styles.close} onClick={onClose}>&times;</span>
+          </div>
           <h2>Save the jokes</h2>
-          
+          <p>If you want to download the saved jokes as a textfile, simply press the red button!</p>          
           <button className={styles.saveBtn} onClick={handleGetTxtFile}>Save</button>
         </div>
       </div>
