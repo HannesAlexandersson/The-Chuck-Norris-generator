@@ -10,6 +10,11 @@ function App() {
   const [jokes, setJokes] = useState([]); //state to store the saved jokesarray
   const [isModalOpen, setIsModalOpen] = useState(false); //state for the email popup window
 
+  
+  // fetch on initial page load
+  useEffect(() => {
+    handleGetJoke();
+  }, []);
 
 
   //the click handler uses the imported fetch function to actually get the random joke from the API
