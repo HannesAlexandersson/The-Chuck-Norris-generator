@@ -12,37 +12,25 @@ function App() {
 
 
 
-  //the clickhandler uses the imported fetch function to actually get the random joke from the API
+  //the click handler uses the imported fetch function to actually get the random joke from the API
   const handleGetJoke = async () => {
-    try {
-      const data = await getJoke('random');
-      setJoke(data.value);
-      setLoaded(true);//set the loaded state to display the "" + the actual joke      
-    } catch (error) {
-      console.error('naah... Chuck Norris stole the joke again:', error);
-    }
-  };
-
-  //fetch the joke and set the states
-  useEffect(() => {
-    const fetchData = async () => {
-      if (selectedCategory) {
-        try {
-          const data = await getJoke(`random?category=${selectedCategory}`);
-          setJoke(data.value);
-          setLoaded(true);
-        } catch (error) {
-          console.error('naah... Chuck Norris stole the joke again:', error);
-        }
+    if (selectedCategory) {
+      try {
+        const data = await getJoke(`random?category=${selectedCategory}`);
+        setJoke(data.value);
+        setLoaded(true);
+      } catch (error) {
+        console.error('naah... Chuck Norris stole the joke again:', error);
       }
-    };
-  
-    fetchData(); 
-  }, [selectedCategory]);//render the joke when the category state changes
-    
-  //the category handler updates the category state when the user chooses a category
-  const handleCategorySelect = async (category) => {
-    setSelectedCategory(category);   
+    } else {
+      try {
+        const data = await getJoke('random');
+        setJoke(data.value);
+        setLoaded(true); //set the loaded state to display the "" + the actual joke
+      } catch (error) {
+        console.error('naah... Chuck Norris stole the joke again:', error);
+      }
+    }
   };
 
   /*--------SAVE LOGIC----------------*/
@@ -97,12 +85,12 @@ const handleGetTxtFile = () => {
 /*--------DOWNLOAD LOGIC ENDS----------------*/
 
   return (
-    <>  
-        <Header 
-          handleGetJoke={handleGetJoke}         
-          handleCategorySelect={handleCategorySelect}
-          selectedCategory={selectedCategory}
-        />
+    <>
+      <Header
+        handleGetJoke={handleGetJoke}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
 
 
         <DisplayContainer
