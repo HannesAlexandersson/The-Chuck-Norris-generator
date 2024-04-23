@@ -1,7 +1,58 @@
-.container {
-  display: flex;
+header {
   padding: 2rem;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
+}
+
+.titleBox {
+  padding: 1rem 2rem;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--Dark-blue);
+  background-color: var(--Light-red);
+  margin: -2rem;
+  margin-bottom: 2rem;
+
+  overflow-x: clip;
+  display: flex;
+}
+
+@keyframes horizontalScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.titleWrapper {
+  animation-name: horizontalScroll;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  display: flex;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  white-space: nowrap;
+  margin-right: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+/* chrome dev tools "tablet" and larger: */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
