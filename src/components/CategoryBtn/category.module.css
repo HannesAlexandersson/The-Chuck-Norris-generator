@@ -73,12 +73,13 @@ ul.dropDownClosed {
 }
 
 ul.dropDownOpen {
+  z-index: 1000;
   opacity: 1;
   transition: opacity 500ms ease-in-out;
 }
 
 ul.dropDownClosed {
-  z-index: -1000;
+  pointer-events: none;
 
   opacity: 0;
   transition: opacity 500ms ease-in-out;
