@@ -6,13 +6,20 @@
   padding: 2rem;
   text-align: center;
 }
+
 .displayContainer > p {
   color: var(--Light-blue);
   font-family: var(--Default-font);
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 150%;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-align: left;
+}
+/* chrome dev tools "tablet" and larger: */
+@media screen and (min-width: 768px) {
+  .displayContainer > p {
+    font-size: 2rem;
+  }
 }
