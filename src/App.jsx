@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Header, SendContainer, SavedContainer, StoreContainer, DisplayContainer } from './components/index.js';
+import { Header, SendContainer, SavedContainer, StoreContainer, DisplayContainer, } from './components/index.js';
 import { getJoke } from './apiFunctions/index.js';//get all our API functions imported
 import './App.css';
 
