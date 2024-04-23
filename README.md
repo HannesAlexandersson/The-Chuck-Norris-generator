@@ -1,11 +1,13 @@
 # The-Chuck-Norris-generator
+
 A react application for generating Chuck Norris jokes.
 
 We use the API to fetch jokes with Chuck Norris theme.
 
 #Installation
 
-Requirements: 
+Requirements:
+
 - Node 21.6.2 or compatible.
 
 1. Clone or fork the repository from github.
@@ -14,7 +16,7 @@ Requirements:
 
 # Usage
 
-The application contains basic fetch calls to the Chuck Norris api : https://api.chucknorris.io/ 
-All cred to the original creators of the API. 
+The application contains basic fetch calls to the Chuck Norris api : https://api.chucknorris.io/
+All cred to the original creators of the API.
 
-Have fun and be safe
+Have fun and be safe!
