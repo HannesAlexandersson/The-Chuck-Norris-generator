@@ -1,0 +1,11 @@
+.btns{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    justify-content: flex-start;
+}
+.start{
+    scale: 125%;
+    stroke: var(--Light-blue);
+}
