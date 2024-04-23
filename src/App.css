@@ -16,7 +16,29 @@
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   text-align: left;
+
+  border: 2px solid var(--Light-blue);
+  box-shadow: 0px 0px 32px 4px rgba(141, 153, 174, 0.25);
+  border-radius: 1rem;
+
+  padding: 2rem;
+  background: linear-gradient(-45deg, var(--Dark-blue), var(--Light-red));
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
 }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* chrome dev tools "tablet" and larger: */
 @media screen and (min-width: 768px) {
   .displayContainer > p {
