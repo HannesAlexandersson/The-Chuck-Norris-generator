@@ -7,3 +7,4 @@ export { default as SendContainer } from './SendContainer/SendContainer.jsx';
 export { default as SavedContainer } from './SavedContainer/SavedContainer.jsx';
 export { default as StoreContainer } from './StoreContainer/StoreContainer.jsx';
 export { default as DisplayContainer } from './DisplayContainer/DisplayContainer.jsx';
+export { default as Speech } from './Speech/Speech.jsx';
