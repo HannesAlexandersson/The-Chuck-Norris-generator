@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import props from 'prop-types';
 import { CircleStop, CirclePause, CirclePlay } from 'lucide-react';
 import style from './speech.module.css';
 
@@ -7,6 +8,7 @@ const TextToSpeech = ({ joke }) => {
   const [utterance, setUtterance] = useState(null);
   const [voice, setVoice] = useState(null);
   const [rate, setRate] = useState(1);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
     
@@ -41,23 +43,29 @@ const TextToSpeech = ({ joke }) => {
 
     if (isPaused) {
       synth.resume();
-    }else{
-        utterance.voice = voice;
-        utterance.rate = rate;
-        synth.speak(utterance);
+      setIsPaused(false);
+    }else if(!isSpeaking){
+      setIsSpeaking(true);//let the voice tell the joke
+      utterance.voice = voice;
+      utterance.rate = rate;
+      synth.speak(utterance);       
     }
-
     
-
+    setIsSpeaking(false);//stop the voice from telling the joke more then 1 time by setting the state to false
     setIsPaused(false);
   };
 
   const handlePause = () => {
     const synth = window.speechSynthesis;
 
-    synth.pause();
+    if(isPaused){
+      setIsPaused(false);
+      handlePlay();
+    }else{
+      synth.pause();
+      setIsPaused(true);
+    }
 
-    setIsPaused(true);
   };
 
   const handleStop = () => {
@@ -76,5 +84,7 @@ const TextToSpeech = ({ joke }) => {
     </div>
   );
 };
-
+TextToSpeech.propTypes = {
+  joke: props.string, 
+};
 export default TextToSpeech
