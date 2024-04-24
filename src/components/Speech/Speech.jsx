@@ -45,13 +45,13 @@ const TextToSpeech = ({ joke }) => {
       synth.resume();
       setIsPaused(false);
     }else if(!isSpeaking){
-      setIsSpeaking(true);
+      setIsSpeaking(true);//let the voice tell the joke
       utterance.voice = voice;
       utterance.rate = rate;
       synth.speak(utterance);       
     }
     
-    setIsSpeaking(false);
+    setIsSpeaking(false);//stop the voice from telling the joke more then 1 time by setting the state to false
     setIsPaused(false);
   };
 
