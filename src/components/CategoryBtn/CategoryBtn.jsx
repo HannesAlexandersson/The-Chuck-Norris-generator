@@ -58,5 +58,9 @@ function CategoryBtn({ selectedCategory, setSelectedCategory }) {
     </>
   );
 }
-
+CategoryBtn.propTypes = {
+  children: props.object,
+  selectedCategory: props.string,
+  setSelectedCategory: props.func,
+};
 export default CategoryBtn;

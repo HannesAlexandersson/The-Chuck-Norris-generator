@@ -23,7 +23,7 @@ const TextToSpeech = ({ joke }) => {
     });
   
     setVoice(englishVoices[0]);
-    console.log(englishVoices);
+    
 
 
     setUtterance(u);

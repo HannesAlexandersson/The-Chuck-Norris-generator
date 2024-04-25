@@ -65,7 +65,7 @@ function App() {
     }
 
     setJokes([...jokes, joke]); //set the state with the joke
-    console.log(jokes);
+    
   };
 
   //handler for removing the joke from the save array

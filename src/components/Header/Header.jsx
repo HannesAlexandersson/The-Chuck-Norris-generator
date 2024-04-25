@@ -3,7 +3,7 @@ import { CategoryBtn, Jokebtn } from '../index.js';
 import style from './header.module.css';
 
 function Header({ selectedCategory, setSelectedCategory, handleGetJoke }) {
-  const count = 30;
+ 
 
   return (
     <>
@@ -40,5 +40,6 @@ function Header({ selectedCategory, setSelectedCategory, handleGetJoke }) {
 Header.propTypes = {
   selectedCategory: props.string,
   handleGetJoke: props.func,
+  setSelectedCategory: props.func,
 };
 export default Header;
